@@ -15,3 +15,12 @@ FROM
     `ospiti`
 WHERE
     `date_of_birth` >= "1989-01-01";
+
+3.  Seleziona tutti gli ospiti che hanno più di 20 anni (al momento dell’esecuzione della query).
+
+SELECT
+    *
+FROM
+    `ospiti`
+WHERE
+    TIMESTAMPDIFF(YEAR,`date_of_birth`,CURDATE()) > 20;
