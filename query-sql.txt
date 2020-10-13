@@ -62,3 +62,10 @@ WHERE
     `document_type` = "Driver License"
 AND
 	YEAR(date_of_birth) = "1975";
+
+8. Quanti posti letto ha l’hotel in totale?
+
+SELECT
+    SUM(beds)
+FROM
+    `stanze`;
