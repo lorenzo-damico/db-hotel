@@ -35,3 +35,12 @@ WHERE
     `name`
 LIKE
     "D%";
+
+5. Calcola il totale degli ordini accepted.
+
+SELECT
+    COUNT(id)
+FROM
+    `pagamenti`
+WHERE
+    `status` = "accepted";
