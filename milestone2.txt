@@ -1,4 +1,4 @@
-Group By
+GROUP BY
 
 1. Conta gli ospiti raggruppandoli per anno di nascita.
 
@@ -40,8 +40,16 @@ GROUP BY
 5. Quante prenotazioni ha fatto l’ospite che ha fatto più prenotazioni?
 
 SELECT
-    COUNT(`id`) AS `numero_prenotazioni`, `ospite_id`
-FROM
-    `prenotazioni_has_ospiti`
-GROUP BY
-	`ospite_id`;
+    MAX(`numero_prenotazioni`)
+FROM(
+    SELECT
+    	COUNT(`id`) AS `numero_prenotazioni`
+    FROM
+    	`prenotazioni_has_ospiti`
+    GROUP BY
+    	`ospite_id`) AS `numero_prenotazioni_ospiti`
+
+
+
+JOIN
+
