@@ -36,3 +36,12 @@ FROM
     `prenotazioni`
 GROUP BY
 	HOUR(`created_at`);
+
+5. Quante prenotazioni ha fatto l’ospite che ha fatto più prenotazioni?
+
+SELECT
+    COUNT(`id`) AS `numero_prenotazioni`, `ospite_id`
+FROM
+    `prenotazioni_has_ospiti`
+GROUP BY
+	`ospite_id`;
