@@ -135,4 +135,10 @@ WHERE
 
 6. Le stanze sono state tutte prenotate almeno una volta? (Visualizzare le stanze non ancora prenotate)
 
-
+SELECT
+    *
+FROM
+    `stanze`
+LEFT JOIN `prenotazioni` ON stanze.id = prenotazioni.stanza_id
+WHERE
+    prenotazioni.stanza_id IS NULL;
