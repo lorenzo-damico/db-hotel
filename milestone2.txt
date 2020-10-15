@@ -117,10 +117,21 @@ FROM
 INNER JOIN `stanze` ON stanze.id = prenotazioni.stanza_id
 INNER JOIN `pagamenti` ON pagamenti.prenotazione_id = prenotazioni.id
 WHERE
-    stanze.floor = 1
+    stanze.floor = 1;
 
 5. Prendi i dati di fatturazione per la prenotazione con id=7
 
+SELECT
+    pagamenti.price,
+    pagamenti.created_at,
+    paganti.name,
+    paganti.lastname,
+    paganti.address
+FROM
+    `pagamenti`
+INNER JOIN `paganti` ON paganti.id = pagamenti.pagante_id
+WHERE
+    pagamenti.prenotazione_id = 7;
 
 6. Le stanze sono state tutte prenotate almeno una volta? (Visualizzare le stanze non ancora prenotate)
 
