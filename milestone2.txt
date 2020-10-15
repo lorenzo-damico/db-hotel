@@ -66,12 +66,20 @@ INNER JOIN
 ON
 	prenotazioni_has_ospiti.ospite_id = ospiti.id
 GROUP BY
-    prenotazioni_has_ospiti.ospite_id
+    	prenotazioni_has_ospiti.ospite_id
 HAVING
 	`totale_prenotazioni` > 2;
 
 2. Stampare tutti gli ospiti per ogni prenotazione
 
+SELECT
+    *
+FROM
+    `prenotazioni_has_ospiti`
+INNER JOIN
+	`ospiti`
+ON
+	prenotazioni_has_ospiti.ospite_id = ospiti.id;
 
 3. Stampare Nome, Cognome, Prezzo e Pagante per tutte le prenotazioni fatte a Maggio 2018
 
