@@ -35,21 +35,21 @@ SELECT
 FROM
     `prenotazioni`
 GROUP BY
-	HOUR(`created_at`);
+	HOUR(`created_at`)
+ORDER BY 
+	`numero_prenotazioni` DESC;
 
 5. Quante prenotazioni ha fatto l’ospite che ha fatto più prenotazioni?
 
 SELECT
-    MAX(`numero_prenotazioni`)
-FROM(
-    SELECT
-    	COUNT(`id`) AS `numero_prenotazioni`
-    FROM
-    	`prenotazioni_has_ospiti`
-    GROUP BY
-    	`ospite_id`) AS `numero_prenotazioni_ospiti`
+    COUNT(`id`) AS `numero_prenotazioni`, `ospite_id`
+FROM
+    `prenotazioni_has_ospiti`
+GROUP BY 
+    `ospite_id`
+ORDER BY 
+    `numero_prenotazioni` DESC
+LIMIT
+    1;
 
-
-
-JOIN
 
